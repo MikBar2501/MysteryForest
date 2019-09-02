@@ -18,7 +18,8 @@ public class LoreBase : ListElement
             elements[i] = Instantiate(prefab,grid);
             elements[i].GetComponent<LoreButtonScript>().sign1.CreateSign(signs[0]);
             elements[i].GetComponent<LoreButtonScript>().sign2.CreateSign(signs[1]);
-            elements[i].transform.parent = grid;
+            //elements[i].transform.parent = grid;
+            elements[i].transform.SetParent(grid);
 
         }
     }

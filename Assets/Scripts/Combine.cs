@@ -16,13 +16,14 @@ public class Combine : MonoBehaviour
 
     public void GenerateLoreId(string id1, string id2) {
         string combine = id1 + "+" + id2;
-        Debug.Log(combine);
+        //Debug.Log(combine);
         if(FindInLoreBase(combine)) {
-            Debug.Log("We have part of Lore");
+            //Debug.Log("We have part of Lore");
             GameManager.gameManager.AddToLore(combine);
             GetLoreID(combine);
+            GameManager.gameManager.Save();
         } else {
-            Debug.Log("Nothing");
+            //Debug.Log("Nothing");
         }
 
         ResetSlot();

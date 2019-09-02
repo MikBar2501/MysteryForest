@@ -19,6 +19,8 @@ public class GameManager : MonoBehaviour
     public string usingCombine;
 
     public ColorsList colorsList;
+
+    List<string> saveFound;
     
 
     void Awake() {
@@ -29,6 +31,7 @@ public class GameManager : MonoBehaviour
         fileReader.signs = Resources.Load<TextAsset>("signs");
         fileReader.ReadSignsFile();
         fileReader.LoadCombinations();
+        saveFound = new List<string>();
         
         /*baseSign.Add("0-1-1-1-0-1-1-RED");
         baseSign.Add("0-0-0-0-1-0-1-RED");
@@ -113,12 +116,17 @@ public class GameManager : MonoBehaviour
         PlayerData data = SaveSystem.LoadElements();
         foundSign.Clear();
         foundLore.Clear();
-        for(int i = 0; i < data.foundID.Length; i++) {
-            foundSign.Add(data.foundID[i]);
+
+        if(data.foundID.Length > 0) {
+            for(int i = 0; i < data.foundID.Length; i++) {
+                foundSign.Add(data.foundID[i]);
+            }
         }
 
-        for(int j = 0; j < data.foundLoreID.Length; j++) {
-            foundLore.Add(data.foundLoreID[j]);
+        if(data.foundLoreID.Length > 0) {
+            for(int j = 0; j < data.foundLoreID.Length; j++) {
+                foundLore.Add(data.foundLoreID[j]);
+            }
         }
     }
 
@@ -160,6 +168,20 @@ public class GameManager : MonoBehaviour
         if(!find) {
             foundLore.Add(id);
         }
+    }
+
+    public void GetEveryCombination() {
+        foundLore.Clear();
+        foundLore = baseLore;
+        /* if(saveFound.Count == 0) {
+            saveFound = foundLore;
+            foundLore.Clear();
+            foundLore = baseLore;
+        } else {
+            foundLore.Clear();
+            foundLore = saveFound;
+            saveFound.Clear();
+        }*/
     }
 
 }

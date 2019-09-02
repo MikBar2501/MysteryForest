@@ -18,7 +18,8 @@ public abstract class ListElement : MonoBehaviour
         for(int i = 0; i < elements.Length; i++) {
             elements[i] = Instantiate(prefab,grid);
             elements[i].GetComponent<Sign>().CreateSign(elementsList[i]);
-            elements[i].transform.parent = grid;
+            //elements[i].transform.parent = grid;
+            elements[i].transform.SetParent(grid);
         }
     }
 
