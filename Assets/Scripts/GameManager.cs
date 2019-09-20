@@ -184,4 +184,14 @@ public class GameManager : MonoBehaviour
         }*/
     }
 
+    public bool FoundSign(string id) {
+        foreach(string sign in foundSign) {
+            if(id == sign) {
+                return false;
+            }
+        }
+
+        return true;
+    }
+
 }

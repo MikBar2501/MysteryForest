@@ -17,7 +17,7 @@ public class Sign : MonoBehaviour {
     public Image smallCircle;
     public Image greatSquare;
     public Image smallSquare;
-    Color color; //5 kolorów
+    Color color; 
     
 
     private void Start() {
